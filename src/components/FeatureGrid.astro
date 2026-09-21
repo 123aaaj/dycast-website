@@ -1,0 +1,16 @@
+---
+const features = [
+  ['01', '礼物触发', '将指定礼物与本地互动效果连接起来，收到消息后即时响应。'],
+  ['02', '视频播放', '为直播玩法准备视频内容，在需要的时候快速播放与重复播放。'],
+  ['03', '弹幕互动', '实时查看聊天、礼物、点赞、关注等直播间消息。'],
+  ['04', '动作联动', '通过键盘、鼠标和系统控制，让互动效果自然进入直播流程。'],
+  ['05', '自动化控制', '支持重连、录制、回放等辅助能力，减少直播中的重复操作。'],
+  ['06', '直播辅助', '支持 WebSocket 转发，把解析后的消息交给你的其他工具使用。'],
+];
+---
+<section class="feature-section section-paper" aria-labelledby="feature-title">
+  <div class="shell">
+    <div class="section-heading centered"><span class="eyebrow">核心功能</span><h2 id="feature-title">为真实直播场景<br /><em>准备的控制工具。</em></h2></div>
+    <div class="feature-grid">{features.map(([number, title, text]) => <article class="feature-item"><span class="feature-number">{number}</span><h3>{title}</h3><p>{text}</p><span class="feature-arrow" aria-hidden="true">↗</span></article>)}</div>
+  </div>
+</section>

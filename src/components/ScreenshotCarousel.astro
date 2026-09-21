@@ -1,0 +1,50 @@
+---
+const screenshots = [
+  { src: '/images/software-preview.png', alt: '十九直播软件主界面截图' },
+  { src: '/images/software-preview-2.png', alt: '十九直播整蛊控制配置界面截图' },
+];
+---
+<div class="screenshot-carousel" data-carousel>
+  <div class="carousel-stage">
+    {screenshots.map((screenshot, index) => (
+      <img class:list={{ 'is-active': index === 0 }} class="carousel-image" src={screenshot.src} alt={screenshot.alt} width="1200" height="785" data-slide={index} loading={index === 0 ? 'eager' : 'lazy'} />
+    ))}
+  </div>
+  <div class="carousel-controls" role="tablist" aria-label="选择软件截图">
+    {screenshots.map((screenshot, index) => (
+      <button class:list={{ 'is-active': index === 0 }} class="carousel-thumb" type="button" role="tab" aria-selected={index === 0} aria-label={`查看第 ${index + 1} 张软件截图`} data-slide-button={index}>
+        <img src={screenshot.src} alt="" width="240" height="157" loading="lazy" />
+      </button>
+    ))}
+  </div>
+</div>
+<script>
+  const carousel = document.querySelector<HTMLElement>('[data-carousel]');
+  if (carousel) {
+    const images = Array.from(carousel.querySelectorAll<HTMLElement>('[data-slide]'));
+    const buttons = Array.from(carousel.querySelectorAll<HTMLButtonElement>('[data-slide-button]'));
+    let current = 0;
+    let timer: number | undefined;
+
+    function showSlide(next: number) {
+      current = next;
+      images.forEach((image, index) => image.classList.toggle('is-active', index === current));
+      buttons.forEach((button, index) => {
+        const active = index === current;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-selected', String(active));
+      });
+    }
+
+    function restartTimer() {
+      if (timer) window.clearInterval(timer);
+      timer = window.setInterval(() => showSlide((current + 1) % images.length), 5000);
+    }
+
+    buttons.forEach((button, index) => button.addEventListener('click', () => {
+      showSlide(index);
+      restartTimer();
+    }));
+    restartTimer();
+  }
+</script>

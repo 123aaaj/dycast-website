@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CURRENT_VERSION, DOWNLOAD_URL } from '../config';
+---
+<Layout title="十九直播软件下载 - 直播互动工具" description="下载十九直播 Windows 桌面端，使用直播消息监听、礼物互动、视频播放和直播辅助功能。">
+  <section class="page-hero section-dark"><div class="shell narrow-hero"><span class="eyebrow">下载软件</span><h1>把直播互动工具，<br /><em>带到你的桌面。</em></h1><p>当前提供 Windows 10/11 桌面端下载。安装包地址和版本信息将在正式发布后更新。</p></div></section>
+  <section id="download" class="download-section section-paper"><div class="shell download-card"><div><span class="eyebrow">Windows 10/11</span><h2>十九直播</h2><p>直播互动与整蛊工具</p></div><div class="download-meta"><span>当前版本</span><strong>{CURRENT_VERSION}</strong><span>系统支持</span><strong>Windows 10/11</strong></div><a class="button button-primary" href={DOWNLOAD_URL} target="_blank" rel="noopener noreferrer">Windows10/11下载</a></div></section>
+  <section class="text-section section-paper"><div class="shell info-grid"><div><h2>安装前了解</h2></div><div><p>下载地址、系统要求、文件大小和校验信息将在安装包准备完成后补充。请以此页面的最新版本说明为准。</p><p>使用过程中遇到问题，可以先阅读<a href="/tutorial">使用教程</a>和<a href="/faq">常见问题</a>。</p></div></div></section>
+</Layout>

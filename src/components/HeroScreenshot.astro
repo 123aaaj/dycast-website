@@ -1,0 +1,48 @@
+---
+const screenshots = [
+  { src: '/images/software-preview.png', alt: '十九直播软件主界面截图' },
+  { src: '/images/software-preview-2.png', alt: '十九直播整蛊控制配置界面截图' },
+];
+---
+<div class="hero-screenshot-carousel" data-hero-carousel>
+  <div class="hero-image-stage">
+    {screenshots.map((screenshot, index) => (
+      <img class:list={{ 'is-active': index === 0 }} class="hero-carousel-image" src={screenshot.src} alt={screenshot.alt} width="1200" height="785" data-hero-slide={index} loading={index === 0 ? 'eager' : 'lazy'} />
+    ))}
+  </div>
+  <div class="hero-carousel-dots" role="tablist" aria-label="切换软件截图">
+    {screenshots.map((screenshot, index) => (
+      <button class:list={{ 'is-active': index === 0 }} type="button" role="tab" aria-selected={index === 0} aria-label={`查看第 ${index + 1} 张软件截图`} data-hero-dot={index}></button>
+    ))}
+  </div>
+</div>
+<script>
+  const carousel = document.querySelector<HTMLElement>('[data-hero-carousel]');
+  if (carousel) {
+    const images = Array.from(carousel.querySelectorAll<HTMLElement>('[data-hero-slide]'));
+    const dots = Array.from(carousel.querySelectorAll<HTMLButtonElement>('[data-hero-dot]'));
+    let current = 0;
+    let timer: number | undefined;
+
+    function showSlide(next: number) {
+      current = next;
+      images.forEach((image, index) => image.classList.toggle('is-active', index === current));
+      dots.forEach((dot, index) => {
+        const active = index === current;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', String(active));
+      });
+    }
+
+    function restartTimer() {
+      if (timer) window.clearInterval(timer);
+      timer = window.setInterval(() => showSlide((current + 1) % images.length), 5000);
+    }
+
+    dots.forEach((dot, index) => dot.addEventListener('click', () => {
+      showSlide(index);
+      restartTimer();
+    }));
+    restartTimer();
+  }
+</script>

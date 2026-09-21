@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+const steps = [
+  ['01', '安装并打开软件', '下载 Windows 版本，完成安装后打开十九直播。首次使用时可以先熟悉主界面和设置区域。'],
+  ['02', '连接直播间', '填写直播间房间号并连接，软件会开始接收直播间内的消息和状态变化。'],
+  ['03', '配置互动玩法', '根据直播流程设置礼物、视频或动作的对应关系，使用测试功能确认配置。'],
+  ['04', '开始直播互动', '确认连接状态后开始直播。需要复盘时，可以使用录制和回放功能检查消息流程。'],
+];
+---
+<Layout title="十九直播使用教程 - 直播整蛊与互动设置" description="查看十九直播的安装、直播间连接、礼物互动、视频播放和录制回放基础教程。">
+  <section class="page-hero section-dark"><div class="shell narrow-hero"><span class="eyebrow">开始使用</span><h1>从第一次连接，<br /><em>到一次完整互动。</em></h1><p>按照下面的步骤完成基础设置。具体选项可能会随软件版本更新。</p></div></section>
+  <section class="steps-section section-paper"><div class="shell"><div class="section-heading"><span class="eyebrow">基础教程</span><h2>四步开始使用。</h2></div><div class="steps-list">{steps.map(([number, title, text]) => <article><b>{number}</b><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div></section>
+</Layout>

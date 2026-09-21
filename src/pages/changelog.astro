@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+const releases = [
+  ['待发布', '网站上线前版本', ['官网基础页面建立', '下载和版本信息区域预留', '补充使用教程和常见问题']],
+];
+---
+<Layout title="十九直播更新日志" description="查看十九直播桌面端和官网的功能更新、优化内容与问题修复记录。">
+  <section class="page-hero section-dark"><div class="shell narrow-hero"><span class="eyebrow">更新记录</span><h1>每一次更新，<br /><em>都更贴近直播现场。</em></h1><p>这里记录十九直播的版本变化。正式版本发布后，将持续补充详细更新内容。</p></div></section>
+  <section class="changelog-section section-paper"><div class="shell changelog-list">{releases.map(([version, title, changes]) => <article><div class="release-date">{version}</div><div><h2>{title}</h2><ul>{changes.map(change => <li>{change}</li>)}</ul></div></article>)}</div></section>
+</Layout>

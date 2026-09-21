@@ -1,0 +1,14 @@
+---
+const items = [
+  ['十九直播是什么？', '十九直播是一款面向直播互动场景的桌面工具，用来连接直播间消息，并将礼物、弹幕等互动转化为本地的视频或动作效果。'],
+  ['支持哪些系统？', '目前官网提供 Windows 桌面端下载入口。具体系统要求和安装方式请以下载页中的当前版本说明为准。'],
+  ['软件收费吗？', '官网提供免费下载。具体版本的功能和使用规则，请以软件当前版本及下载页说明为准。'],
+  ['怎么设置礼物触发？', '打开软件后连接直播间，在礼物或视频相关控制区域选择对应礼物和播放内容，再保存配置即可。详细步骤请查看使用教程。'],
+];
+---
+<section class="faq-section section-paper" aria-labelledby="faq-title">
+  <div class="shell faq-layout">
+    <div class="section-heading"><span class="eyebrow">FAQ</span><h2 id="faq-title">常见问题，<br /><em>一次说清。</em></h2></div>
+    <div class="faq-list">{items.map(([question, answer]) => <details><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div>
+  </div>
+</section>

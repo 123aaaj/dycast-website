@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import ScreenshotCarousel from '../components/ScreenshotCarousel.astro';
+import HeroScreenshot from '../components/HeroScreenshot.astro';
+import { DOWNLOAD_URL } from '../config';
+---
+<Layout title="十九直播 - 直播整蛊软件与直播互动工具" description="十九直播是一款面向直播互动场景的桌面工具，支持礼物触发、视频播放、弹幕联动和直播辅助。">
+	<section class="product-hero">
+		<div class="shell product-hero-grid">
+			<div class="product-hero-copy">
+				<span class="eyebrow">十九直播 · 直播互动工具</span>
+				<h1>让直播间的互动，<br /><em>真正产生效果。</em></h1>
+				<p>面向直播互动场景的桌面软件。连接直播间消息，把礼物、弹幕和点赞转化为视频播放、动作联动与更多直播玩法。</p>
+				<div class="hero-actions"><a class="button button-primary" href={DOWNLOAD_URL} target="_blank" rel="noopener noreferrer">Windows10/11下载 <span aria-hidden="true">↗</span></a></div>
+				<div class="product-proof"><span>桌面端工具</span><span>直播消息监听</span><span>持续更新</span></div>
+			</div>
+			<HeroScreenshot />
+		</div>
+	</section>
+
+	<section class="use-case-section section-paper" aria-labelledby="use-case-title"><div class="shell"><div class="section-heading centered"><span class="eyebrow">互动玩法</span><h2 id="use-case-title">适合不同类型的<br /><em>直播互动场景。</em></h2><p>从礼物触发到视频联动，把观众的互动接入直播流程。</p></div><div class="use-case-grid"><article><span class="case-icon">01</span><h3>游戏直播</h3><p>用礼物、弹幕和点赞触发视频或动作，让直播过程更有即时反馈。</p><a href="/software">了解玩法 <span>→</span></a></article><article><span class="case-icon">02</span><h3>娱乐直播</h3><p>连接直播间消息与本地效果，让观众的互动不只停留在评论区。</p><a href="/software">了解玩法 <span>→</span></a></article><article><span class="case-icon">03</span><h3>互动整蛊</h3><p>把直播整蛊做成可以配置和重复使用的互动玩法，减少现场操作。</p><a href="/software">了解玩法 <span>→</span></a></article></div></div></section>
+
+	<section class="case-showcase-section" aria-labelledby="case-title"><div class="shell"><div class="section-heading showcase-heading"><div><span class="eyebrow">软件案例</span><h2 id="case-title">先看软件，<br /><em>再想你的玩法。</em></h2></div><p>自动播放软件界面，也可以点击下方缩略图直接切换查看。</p></div><ScreenshotCarousel /></div></section>
+
+	<div id="features"><FeatureGrid /></div>
+	<section class="simple-download-section section-dark"><div class="shell simple-download-inner"><div><span class="eyebrow">开始使用</span><h2>下载十九直播，<br /><em>搭建你的直播互动。</em></h2></div><div><p>支持 Windows 10/11。点击下载后进入飞书文档获取软件。</p><a class="button button-primary" href={DOWNLOAD_URL} target="_blank" rel="noopener noreferrer">Windows10/11下载 <span aria-hidden="true">↗</span></a></div></div></section>
+	<FAQ />
+	<CTA />
+	<script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: '十九直播', applicationCategory: 'MultimediaApplication', operatingSystem: 'Windows 10, Windows 11', description: '面向直播互动场景的桌面工具，支持礼物触发、视频播放、弹幕联动和直播辅助。', offers: { '@type': 'Offer', price: '0', priceCurrency: 'CNY' } })} />
+</Layout>
