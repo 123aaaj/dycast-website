@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://YOUR-DOMAIN.com/</loc></url>
-  <url><loc>https://YOUR-DOMAIN.com/software</loc></url>
-  <url><loc>https://YOUR-DOMAIN.com/download</loc></url>
-  <url><loc>https://YOUR-DOMAIN.com/tutorial</loc></url>
-  <url><loc>https://YOUR-DOMAIN.com/changelog</loc></url>
-  <url><loc>https://YOUR-DOMAIN.com/faq</loc></url>
+  <url><loc>https://dycast-website.pages.dev/</loc></url>
+  <url><loc>https://dycast-website.pages.dev/software</loc></url>
+  <url><loc>https://dycast-website.pages.dev/download</loc></url>
+  <url><loc>https://dycast-website.pages.dev/tutorial</loc></url>
+  <url><loc>https://dycast-website.pages.dev/changelog</loc></url>
+  <url><loc>https://dycast-website.pages.dev/faq</loc></url>
 </urlset>
