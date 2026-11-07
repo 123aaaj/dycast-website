@@ -1,19 +1,56 @@
+---
+import { DOWNLOAD_URL } from '../config';
+import WindowsIcon from './WindowsIcon.astro';
+---
 <header class="site-header">
   <div class="shell nav-shell">
     <a class="brand" href="/" aria-label="十九直播首页">
-      <img src="/images/logo.png" alt="" width="34" height="34" />
+      <img src="/images/logo.png" alt="" width="42" height="42" />
       <span>十九直播</span>
+    </a>
+    <a class="nav-download is-hidden" data-sticky-download href={DOWNLOAD_URL} target="_blank" rel="noopener noreferrer" aria-label="下载地址" aria-hidden="true" tabindex="-1">
+      <span class="download-address-button-inner"><WindowsIcon /><span>下载地址</span></span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">菜单</button>
     <nav id="site-nav" class="site-nav" aria-label="主导航">
-      <a href="/software">软件</a>
-      <a href="https://docs.qq.com/doc/DUkV3bGNTTnpjbmhk" target="_blank" rel="noopener noreferrer">教程</a>
-      <a href="/changelog">更新日志</a>
-      <a href="/faq">FAQ</a>
+      <a href="/">首页</a>
+      <a href="https://docs.qq.com/doc/DUkV3bGNTTnpjbmhk" target="_blank" rel="noopener noreferrer">使用教程</a>
+      <a href="/#pricing">卡密激活</a>
     </nav>
   </div>
 </header>
 <script>
+  const stickyDownload = document.querySelector<HTMLAnchorElement>('[data-sticky-download]');
+  const heroDownload = document.querySelector<HTMLElement>('.hero-download-button');
+  const setStickyDownloadVisible = (visible: boolean) => {
+    if (!stickyDownload) return;
+    stickyDownload.classList.toggle('is-hidden', !visible);
+    stickyDownload.setAttribute('aria-hidden', String(!visible));
+    if (visible) stickyDownload.removeAttribute('tabindex');
+    else stickyDownload.setAttribute('tabindex', '-1');
+  };
+
+  if (stickyDownload) {
+    if (!heroDownload) {
+      setStickyDownloadVisible(true);
+    } else if ('IntersectionObserver' in window) {
+      const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height ?? 82;
+      const observer = new IntersectionObserver(([entry]) => {
+        setStickyDownloadVisible(!entry.isIntersecting);
+      }, { rootMargin: `-${headerHeight}px 0px 0px 0px`, threshold: 0 });
+      observer.observe(heroDownload);
+    } else {
+      const updateVisibility = () => {
+        const bounds = heroDownload.getBoundingClientRect();
+        const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height ?? 82;
+        setStickyDownloadVisible(!(bounds.bottom > headerHeight && bounds.top < window.innerHeight));
+      };
+      updateVisibility();
+      window.addEventListener('scroll', updateVisibility, { passive: true });
+      window.addEventListener('resize', updateVisibility);
+    }
+  }
+
   const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
   const nav = document.querySelector<HTMLElement>('#site-nav');
   toggle?.addEventListener('click', () => {

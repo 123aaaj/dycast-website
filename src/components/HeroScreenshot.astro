@@ -1,7 +1,8 @@
 ---
 const screenshots = [
-  { src: '/images/software-preview.png', alt: '十九直播软件主界面截图' },
-  { src: '/images/software-preview-2.png', alt: '十九直播整蛊控制配置界面截图' },
+  { src: '/images/hero-main.png', alt: '十九直播软件主页面截图' },
+  { src: '/images/hero-secondary-1.png', alt: '十九直播全屏视频播放设置截图' },
+  { src: '/images/hero-secondary-2.png', alt: '十九直播整蛊控制页面截图' },
 ];
 ---
 <div class="hero-screenshot-carousel" data-hero-carousel>
@@ -36,7 +37,7 @@ const screenshots = [
 
     function restartTimer() {
       if (timer) window.clearInterval(timer);
-      timer = window.setInterval(() => showSlide((current + 1) % images.length), 5000);
+      timer = window.setInterval(() => showSlide((current + 1) % images.length), 1500);
     }
 
     dots.forEach((dot, index) => dot.addEventListener('click', () => {

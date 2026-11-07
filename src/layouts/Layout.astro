@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import ContactDock from '../components/ContactDock.astro';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '../config';
 
 interface Props {
@@ -24,7 +25,7 @@ const ogImage = new URL(image, SITE_URL).toString();
     <meta name="msvalidate.01" content="46CBFB91F0674E1CF47C863E36F45EE6" />
     <meta name="description" content={description} />
     <meta name="keywords" content="直播整蛊, 直播整蛊软件, 直播互动工具, 直播间整蛊, 抖音直播整蛊, 礼物触发视频" />
-    <meta name="theme-color" content="#101214" />
+    <meta name="theme-color" content="#102b42" />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" href="/favicon.ico" />
     <link rel="canonical" href={canonical} />
@@ -46,5 +47,6 @@ const ogImage = new URL(image, SITE_URL).toString();
       <slot />
     </main>
     <Footer />
+    <ContactDock />
   </body>
 </html>

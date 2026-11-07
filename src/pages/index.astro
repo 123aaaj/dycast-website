@@ -1,33 +1,80 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import FeatureGrid from '../components/FeatureGrid.astro';
-import FAQ from '../components/FAQ.astro';
 import CTA from '../components/CTA.astro';
-import ScreenshotCarousel from '../components/ScreenshotCarousel.astro';
 import HeroScreenshot from '../components/HeroScreenshot.astro';
+import WindowsIcon from '../components/WindowsIcon.astro';
 import { DOWNLOAD_URL } from '../config';
 ---
 <Layout title="十九直播 - 直播整蛊软件与直播互动工具" description="十九直播是一款面向直播互动场景的桌面工具，支持礼物触发、视频播放、弹幕联动和直播辅助。">
 	<section class="product-hero">
+		<HeroScreenshot />
 		<div class="shell product-hero-grid">
 			<div class="product-hero-copy">
-				<span class="eyebrow">十九直播 · 直播互动工具</span>
-				<h1>让直播间的互动，<br /><em>真正产生效果。</em></h1>
-				<p>面向直播互动场景的桌面软件。连接直播间消息，把礼物、弹幕和点赞转化为视频播放、动作联动与更多直播玩法。</p>
-				<div class="hero-actions"><a class="button button-primary" href={DOWNLOAD_URL} target="_blank" rel="noopener noreferrer">Windows10/11下载 <span aria-hidden="true">↗</span></a></div>
-				<div class="product-proof"><span>桌面端工具</span><span>直播消息监听</span><span>持续更新</span></div>
+				<h1>十九直播</h1>
+				<p>你的直播间玩法工具</p>
+				<a class="button button-primary download-address-button hero-download-button" href={DOWNLOAD_URL} target="_blank" rel="noopener noreferrer"><span class="download-address-button-inner"><WindowsIcon /><span class="download-address-copy"><span>下载地址</span><small>支持win10及以上用户版本</small></span><span aria-hidden="true">↗</span></span></a>
 			</div>
-			<HeroScreenshot />
 		</div>
 	</section>
 
-	<section class="use-case-section section-paper" aria-labelledby="use-case-title"><div class="shell"><div class="section-heading centered"><span class="eyebrow">互动玩法</span><h2 id="use-case-title">适合不同类型的<br /><em>直播互动场景。</em></h2><p>从礼物触发到视频联动，把观众的互动接入直播流程。</p></div><div class="use-case-grid"><article><span class="case-icon">01</span><h3>游戏直播</h3><p>用礼物、弹幕和点赞触发视频或动作，让直播过程更有即时反馈。</p><a href="/software">了解玩法 <span>→</span></a></article><article><span class="case-icon">02</span><h3>娱乐直播</h3><p>连接直播间消息与本地效果，让观众的互动不只停留在评论区。</p><a href="/software">了解玩法 <span>→</span></a></article><article><span class="case-icon">03</span><h3>互动整蛊</h3><p>把直播整蛊做成可以配置和重复使用的互动玩法，减少现场操作。</p><a href="/software">了解玩法 <span>→</span></a></article></div></div></section>
-
-	<section class="case-showcase-section" aria-labelledby="case-title"><div class="shell"><div class="section-heading showcase-heading"><div><span class="eyebrow">软件案例</span><h2 id="case-title">先看软件，<br /><em>再想你的玩法。</em></h2></div><p>自动播放软件界面，也可以点击下方缩略图直接切换查看。</p></div><ScreenshotCarousel /></div></section>
-
-	<div id="features"><FeatureGrid /></div>
-	<section class="simple-download-section section-dark"><div class="shell simple-download-inner"><div><span class="eyebrow">开始使用</span><h2>下载十九直播，<br /><em>搭建你的直播互动。</em></h2></div><div><p>支持 Windows 10/11。点击下载后进入飞书文档获取软件。</p><a class="button button-primary" href={DOWNLOAD_URL} target="_blank" rel="noopener noreferrer">Windows10/11下载 <span aria-hidden="true">↗</span></a></div></div></section>
-	<FAQ />
+	<section class="feature-showcase-section" aria-labelledby="feature-title">
+		<div class="shell">
+			<div class="feature-showcase-heading"><h2 id="feature-title">直播功能</h2></div>
+			<FeatureGrid />
+		</div>
+	</section>
+	<section id="pricing" class="pricing-section" aria-labelledby="pricing-title">
+		<div class="shell">
+			<header class="pricing-heading">
+				<h2 id="pricing-title">卡密购买</h2>
+				<p>选择适合你的授权时长</p>
+			</header>
+			<div class="pricing-grid">
+				<article class="pricing-card">
+					<h3>月卡</h3>
+					<p class="pricing-price"><strong>¥11</strong><span>/月</span></p>
+					<p class="pricing-duration">授权有效期 1 个月</p>
+					<button class="pricing-button" type="button" aria-disabled="true">立即购买</button>
+				</article>
+				<article class="pricing-card pricing-card-featured">
+					<span class="pricing-badge">推荐</span>
+					<h3>年卡</h3>
+					<p class="pricing-price"><strong>¥50</strong><span>/年</span></p>
+					<p class="pricing-duration">授权有效期 1 年</p>
+					<button class="pricing-button" type="button" aria-disabled="true">立即购买</button>
+				</article>
+				<article class="pricing-card">
+					<h3>永久授权</h3>
+					<p class="pricing-price"><strong>¥120</strong><span>/永久</span></p>
+					<p class="pricing-duration">一次激活，长期使用</p>
+					<button class="pricing-button" type="button" aria-disabled="true">立即购买</button>
+				</article>
+			</div>
+			<p class="pricing-note">卡密激活后不支持退款</p>
+		</div>
+	</section>
+	<section class="platforms-section" aria-labelledby="platforms-title">
+		<div class="shell">
+			<header class="platforms-heading">
+				<h2 id="platforms-title">支持平台</h2>
+			</header>
+			<div class="platform-buttons">
+				<div class="platform-button" role="img" aria-label="抖音">
+					<svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg>
+					<span>抖音</span>
+				</div>
+				<div class="platform-button" role="img" aria-label="快手">
+					<svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h11a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><path d="m17 10 5-3v12l-5-3"/><path d="m7 11 4 2-4 2z"/></svg>
+					<span>快手</span>
+				</div>
+				<div class="platform-button" role="img" aria-label="TikTok">
+					<svg class="platform-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><path d="M9 18a3 3 0 1 1-3-3c1.7 0 3 .9 3 3Zm12-2a3 3 0 1 1-3-3c1.7 0 3 .9 3 3Z"/><path d="M14 4.2c.4 2.2 2.1 3.9 4.3 4.3"/></svg>
+					<span>TikTok</span>
+				</div>
+			</div>
+		</div>
+	</section>
 	<CTA />
 	<script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: '十九直播', applicationCategory: 'MultimediaApplication', operatingSystem: 'Windows 10, Windows 11', description: '面向直播互动场景的桌面工具，支持礼物触发、视频播放、弹幕联动和直播辅助。', offers: { '@type': 'Offer', price: '0', priceCurrency: 'CNY' } })} />
 </Layout>

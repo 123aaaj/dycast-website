@@ -1,19 +1,20 @@
 ---
 const screenshots = [
-  { src: '/images/software-preview.png', alt: '十九直播软件主界面截图' },
-  { src: '/images/software-preview-2.png', alt: '十九直播整蛊控制配置界面截图' },
+  { src: '/images/mode-virtual-printer-1.png', alt: '虚拟打印机互动玩法截图一', width: 490, height: 973 },
+  { src: '/images/mode-virtual-printer-2.png', alt: '虚拟打印机互动玩法截图二', width: 490, height: 973 },
+  { src: '/images/mode-chain-lock.png', alt: '铁链互动玩法截图', width: 743, height: 448 },
 ];
 ---
 <div class="screenshot-carousel" data-carousel>
   <div class="carousel-stage">
     {screenshots.map((screenshot, index) => (
-      <img class:list={{ 'is-active': index === 0 }} class="carousel-image" src={screenshot.src} alt={screenshot.alt} width="1200" height="785" data-slide={index} loading={index === 0 ? 'eager' : 'lazy'} />
+      <img class:list={{ 'is-active': index === 0 }} class="carousel-image" src={screenshot.src} alt={screenshot.alt} width={screenshot.width} height={screenshot.height} data-slide={index} loading={index === 0 ? 'eager' : 'lazy'} />
     ))}
   </div>
   <div class="carousel-controls" role="tablist" aria-label="选择软件截图">
     {screenshots.map((screenshot, index) => (
       <button class:list={{ 'is-active': index === 0 }} class="carousel-thumb" type="button" role="tab" aria-selected={index === 0} aria-label={`查看第 ${index + 1} 张软件截图`} data-slide-button={index}>
-        <img src={screenshot.src} alt="" width="240" height="157" loading="lazy" />
+        <img src={screenshot.src} alt="" width={screenshot.width} height={screenshot.height} loading="lazy" />
       </button>
     ))}
   </div>

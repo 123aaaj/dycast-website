@@ -1,0 +1,34 @@
+<aside class="contact-dock" data-contact-dock aria-label="联系方式">
+  <button class="contact-toggle" type="button" aria-controls="contact-card-list" aria-expanded="true" aria-label="收起联系方式">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+    <span class="contact-toggle-label" aria-hidden="true">联系方式</span>
+  </button>
+  <div class="contact-content" id="contact-card-list">
+    <div class="contact-card">
+      <img src="/images/contact-qq-qr.png" alt="QQ 联系二维码" width="904" height="904" />
+      <p class="contact-card-label">QQ25482601113</p>
+    </div>
+    <div class="contact-card contact-card-douyin">
+      <p class="contact-card-label">抖音</p>
+      <img src="/images/contact-douyin-qr.png" alt="抖音二维码" width="745" height="745" />
+    </div>
+  </div>
+</aside>
+<script>
+  const dock = document.querySelector<HTMLElement>('[data-contact-dock]');
+  const toggle = dock?.querySelector<HTMLButtonElement>('.contact-toggle');
+  const content = dock?.querySelector<HTMLElement>('.contact-content');
+
+  dock?.classList.remove('is-collapsed');
+  toggle?.setAttribute('aria-expanded', 'true');
+  toggle?.setAttribute('aria-label', '收起联系方式');
+  content?.removeAttribute('aria-hidden');
+
+  toggle?.addEventListener('click', () => {
+    if (!dock || !content) return;
+    const collapsed = dock.classList.toggle('is-collapsed');
+    toggle.setAttribute('aria-expanded', String(!collapsed));
+    toggle.setAttribute('aria-label', collapsed ? '展开联系方式' : '收起联系方式');
+    content.setAttribute('aria-hidden', String(collapsed));
+  });
+</script>
